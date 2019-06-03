@@ -1,7 +1,9 @@
 upstream backend {
-  server 172.31.26.146:8080;
-  server 172.31.25.13:8080;
-  server 172.31.17.67:8080;
+  ip_hash;
+  server 172.31.6.245:8080 max_fails=0 fail_timeout=10s max_conns=256;
+  server 172.31.9.233:8080 max_fails=0 fail_timeout=10s max_conns=256;
+  server 172.31.1.13:8080 max_fails=0 fail_timeout=10s max_conns=256;
+  keepalive 8;
 }
 
 server {
