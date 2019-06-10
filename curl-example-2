@@ -1,0 +1,21 @@
+curl -v -X POST http://ec2-13-59-185-118.us-east-2.compute.amazonaws.com/api/v1/ingest/humio-unstructured \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer HtRJTclwiPdji3tKntuaQxYdUyY9Gr4hrxInpi19ykkg" \
+-d @- << EOF
+[
+  {
+    "fields": {
+      "host": "instana"
+    },
+    "messages": [
+       "{\"timestamp\": \"2019-01-30T12:00:00+02:00\", \"attributes\": {\"id\": \"536508e35-49a3-a610-56b442ae7620\",
+				   \"type\": \"issue\", \"state\": \"OPEN\", \"severity\": 10, \"start\": 1547744743622,
+				   \"text\": \"Garbage Collection Activity High (1000%)\",
+				   \"suggestion\": \"Tune your Garbage Collector, reduce allocation rate through code changes\",
+				   \"link\": \"https://XXXXXXX/#/?snapshotId=rjhkZXdNzegliVVEswMScGNn0YY\",
+				   \"zone\": \"prod\", \"fqdn\": \"passhost.demo.com\", \"entity\": \"jvm\",
+				   \"tags\": \"production, documents, elasticsearch\"}}"
+    ]
+  }
+]
+EOF
